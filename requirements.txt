@@ -1,0 +1,4 @@
+gputil==1.4.0
+loguru
+pycocotools
+paddlepaddle==2.2.1
