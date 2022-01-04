@@ -78,7 +78,8 @@ python tools/eval.py -n yolox-nano -c ./YOLOX_outputs/nano/yolox_nano.pdparams -
 python tools/demo.py image -n yolox-nano -c ./YOLOX_outputs/nano/yolox_nano.pdparams --path assets/dog.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result
 ```
 推理结果如下所示
-<center><img src="https://ai-studio-static-online.cdn.bcebos.com/c199d241704b44469a2846967f4f1057f8f208d5c103417ca7c0c8590ecb084d" width="400"/>   <img src="https://ai-studio-static-online.cdn.bcebos.com/f7f8922c525040f08a8a52837948826911362f3f6b01406eb49945dd6925c4d0" width="400"/></center>
+ 
+<img src="https://ai-studio-static-online.cdn.bcebos.com/c199d241704b44469a2846967f4f1057f8f208d5c103417ca7c0c8590ecb084d" width="400"/><img src="https://ai-studio-static-online.cdn.bcebos.com/f7f8922c525040f08a8a52837948826911362f3f6b01406eb49945dd6925c4d0" width="400"/>
 
 ## Train Custom Data
 **相信这是大部分开发者最关心的事情，本章节参考如下仓库，本仓库现已集成**
