@@ -45,6 +45,7 @@ export YOLOX_DATADIR=/home/aistudio/
 ```
 python tools/train.py -n yolox-nano -d 1 -b 64
 ```
+得到的权重保存至`./YOLOX_outputs/nano/yolox_nano.pdparams`
 
 ## 验证
 ```
