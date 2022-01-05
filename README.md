@@ -27,10 +27,10 @@ pip install -v -e .
 ```
 如`AIStudio`路径
 ```
-#include </home/ubuntu/anaconda3/envs/paddle2/lib/python3.7/site-packages/pybind11/include/pybind11/numpy.h>
-#include </home/ubuntu/anaconda3/envs/paddle2/lib/python3.7/site-packages/pybind11/include/pybind11/pybind11.h>
-#include </home/ubuntu/anaconda3/envs/paddle2/lib/python3.7/site-packages/pybind11/include/pybind11/stl.h>
-#include </home/ubuntu/anaconda3/envs/paddle2/lib/python3.7/site-packages/pybind11/include/pybind11/stl_bind.h>
+#include </opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/pybind11/include/pybind11/numpy.h>
+#include </opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/pybind11/include/pybind11/pybind11.h>
+#include </opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/pybind11/include/pybind11/stl.h>
+#include </opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/pybind11/include/pybind11/stl_bind.h>
 ```
 成功后使用`pip list`可看到安装模块
 ```
