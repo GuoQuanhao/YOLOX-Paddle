@@ -1,0 +1,524 @@
+2022-01-21 13:37:48.996 | INFO     | __main__:main:115 - Args: Namespace(batch_size=64, ckpt='./YOLOX_outputs/yolox-tiny/yolox_tiny.pdparams', conf=0.001, devices=1, dist_backend='nccl', dist_url=None, exp_file=None, experiment_name='yolox_tiny', fp16=False, fuse=False, legacy=False, machine_rank=0, name='yolox-tiny', nms=None, num_machines=1, opts=[], seed=None, speed=False, test=False, tsize=None)
+2022-01-21 13:38:02.470 | INFO     | __main__:main:115 - Args: Namespace(batch_size=64, ckpt='./YOLOX_outputs/yolox_tiny/yolox_tiny.pdparams', conf=0.001, devices=1, dist_backend='nccl', dist_url=None, exp_file=None, experiment_name='yolox_tiny', fp16=False, fuse=False, legacy=False, machine_rank=0, name='yolox-tiny', nms=None, num_machines=1, opts=[], seed=None, speed=False, test=False, tsize=None)
+2022-01-21 13:38:06.292 | INFO     | __main__:main:125 - Model Summary: Params: 5.07M, Gflops: 6.45
+2022-01-21 13:38:06.295 | INFO     | __main__:main:126 - Model Structure:
+YOLOX(
+  (backbone): YOLOPAFPN(
+    (backbone): CSPDarknet(
+      (stem): Focus(
+        (conv): BaseConv(
+          (conv): Conv2D(12, 24, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=24, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+      (dark2): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(24, 48, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2D(48, 24, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=24, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(48, 24, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=24, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv3): BaseConv(
+            (conv): Conv2D(48, 48, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(24, 24, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=24, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(24, 24, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=24, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+          )
+        )
+      )
+      (dark3): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(48, 96, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2D(96, 48, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(96, 48, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv3): BaseConv(
+            (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(48, 48, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+          )
+        )
+      )
+      (dark4): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 192, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv3): BaseConv(
+            (conv): Conv2D(192, 192, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+          )
+        )
+      )
+      (dark5): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(192, 384, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=384, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): SPPBottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (m): LayerList(
+            (0): MaxPool2D(kernel_size=5, stride=1, padding=2)
+            (1): MaxPool2D(kernel_size=9, stride=1, padding=4)
+            (2): MaxPool2D(kernel_size=13, stride=1, padding=6)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(768, 384, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=384, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+        )
+        (2): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv3): BaseConv(
+            (conv): Conv2D(384, 384, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=384, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2D(192, 192, kernel_size=[1, 1], data_format=NCHW)
+                (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+              (conv2): BaseConv(
+                (conv): Conv2D(192, 192, kernel_size=[3, 3], padding=1, data_format=NCHW)
+                (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+                (act): Silu()
+              )
+            )
+          )
+        )
+      )
+    )
+    (upsample): Upsample(scale_factor=2.0, mode=nearest)
+    (lateral_conv0): BaseConv(
+      (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+      (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+      (act): Silu()
+    )
+    (C3_p4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv2): BaseConv(
+        (conv): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv3): BaseConv(
+        (conv): Conv2D(192, 192, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+        )
+      )
+    )
+    (reduce_conv1): BaseConv(
+      (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+      (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+      (act): Silu()
+    )
+    (C3_p3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2D(192, 48, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv2): BaseConv(
+        (conv): Conv2D(192, 48, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv3): BaseConv(
+        (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2D(48, 48, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(48, 48, kernel_size=[3, 3], padding=1, data_format=NCHW)
+            (bn): BatchNorm2D(num_features=48, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+        )
+      )
+    )
+    (bu_conv2): BaseConv(
+      (conv): Conv2D(96, 96, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+      (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+      (act): Silu()
+    )
+    (C3_n3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv2): BaseConv(
+        (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv3): BaseConv(
+        (conv): Conv2D(192, 192, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+            (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+        )
+      )
+    )
+    (bu_conv1): BaseConv(
+      (conv): Conv2D(192, 192, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+      (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+      (act): Silu()
+    )
+    (C3_n4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv2): BaseConv(
+        (conv): Conv2D(384, 192, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (conv3): BaseConv(
+        (conv): Conv2D(384, 384, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=384, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2D(192, 192, kernel_size=[1, 1], data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+          (conv2): BaseConv(
+            (conv): Conv2D(192, 192, kernel_size=[3, 3], padding=1, data_format=NCHW)
+            (bn): BatchNorm2D(num_features=192, momentum=0.03, epsilon=0.001)
+            (act): Silu()
+          )
+        )
+      )
+    )
+  )
+  (head): YOLOXHead(
+    (cls_convs): LayerList(
+      (0): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+      (1): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+      (2): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+    )
+    (reg_convs): LayerList(
+      (0): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+      (1): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+      (2): Sequential(
+        (0): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+        (1): BaseConv(
+          (conv): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+          (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+          (act): Silu()
+        )
+      )
+    )
+    (cls_preds): LayerList(
+      (0): Conv2D(96, 80, kernel_size=[1, 1], data_format=NCHW)
+      (1): Conv2D(96, 80, kernel_size=[1, 1], data_format=NCHW)
+      (2): Conv2D(96, 80, kernel_size=[1, 1], data_format=NCHW)
+    )
+    (reg_preds): LayerList(
+      (0): Conv2D(96, 4, kernel_size=[1, 1], data_format=NCHW)
+      (1): Conv2D(96, 4, kernel_size=[1, 1], data_format=NCHW)
+      (2): Conv2D(96, 4, kernel_size=[1, 1], data_format=NCHW)
+    )
+    (obj_preds): LayerList(
+      (0): Conv2D(96, 1, kernel_size=[1, 1], data_format=NCHW)
+      (1): Conv2D(96, 1, kernel_size=[1, 1], data_format=NCHW)
+      (2): Conv2D(96, 1, kernel_size=[1, 1], data_format=NCHW)
+    )
+    (stems): LayerList(
+      (0): BaseConv(
+        (conv): Conv2D(96, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (1): BaseConv(
+        (conv): Conv2D(192, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+      (2): BaseConv(
+        (conv): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+        (bn): BatchNorm2D(num_features=96, momentum=0.03, epsilon=0.001)
+        (act): Silu()
+      )
+    )
+    (l1_loss): L1Loss()
+    (bcewithlog_loss): BCEWithLogitsLoss()
+    (iou_loss): IOUloss()
+  )
+)
+2022-01-21 13:38:06.304 | INFO     | yolox.data.datasets.coco:__init__:45 - loading annotations into memory...
+2022-01-21 13:38:06.854 | INFO     | yolox.data.datasets.coco:__init__:45 - Done (t=0.55s)
+2022-01-21 13:38:06.855 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2022-01-21 13:38:07.055 | INFO     | pycocotools.coco:__init__:86 - index created!
+2022-01-21 13:38:08.433 | INFO     | __main__:main:135 - loading checkpoint from ./YOLOX_outputs/yolox_tiny/yolox_tiny.pdparams
+2022-01-21 13:38:08.590 | INFO     | __main__:main:138 - loaded checkpoint done.
+2022-01-21 13:39:19.577 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:147 - Evaluate in main process...
+2022-01-21 13:39:28.985 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:179 - Loading and preparing results...
+2022-01-21 13:39:33.604 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:179 - DONE (t=4.62s)
+2022-01-21 13:39:33.605 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2022-01-21 13:39:34.130 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2022-01-21 13:39:34.144 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:183 - Use standard COCOeval.
+2022-01-21 13:39:34.145 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:186 - Running per image evaluation...
+2022-01-21 13:39:34.179 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:186 - Evaluate annotation type *bbox*
+2022-01-21 13:40:34.646 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:186 - DONE (t=60.50s).
+2022-01-21 13:40:34.646 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:187 - Accumulating evaluation results...
+2022-01-21 13:40:44.178 | INFO     | yolox.evaluators.coco_evaluator:evaluate_prediction:187 - DONE (t=9.53s).
+2022-01-21 13:40:45.686 | INFO     | __main__:main:150 - 
+Average forward time: 0.87 ms, Average NMS time: 7.85 ms, Average inference time: 8.72 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.329
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.507
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.349
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.140
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.360
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.499
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.286
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.452
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.486
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.233
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.544
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.692
+
