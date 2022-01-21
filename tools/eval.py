@@ -66,13 +66,6 @@ def make_parser():
         help="Fuse conv and bn for testing.",
     )
     parser.add_argument(
-        "--trt",
-        dest="trt",
-        default=False,
-        action="store_true",
-        help="Using TensorRT model for testing.",
-    )
-    parser.add_argument(
         "--legacy",
         dest="legacy",
         default=False,
@@ -134,7 +127,7 @@ def main(exp, args):
     evaluator = exp.get_evaluator(args.batch_size, args.test, args.legacy)
     model.eval()
 
-    if not args.speed and not args.trt:
+    if not args.speed:
         if args.ckpt is None:
             ckpt_file = os.path.join(file_name, "best_ckpt.pdparams")
         else:
