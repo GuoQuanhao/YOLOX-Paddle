@@ -74,6 +74,12 @@ python tools/eval.py -n yolox-nano -c ./YOLOX_outputs/nano/yolox_nano.pdparams -
 |[YOLOX-x](./exps/default/yolox_x.py)   |640   |51.1 |**51.5**  | 17.3    |99.1 |281.9 |
 |[YOLOX-Darknet53](./exps/default/yolov3.py)   |640  | 47.7 | 48.0 | 11.1 |63.7 | 185.3 |
 
+#### Light Models.
+
+|Model |size |mAP<sup>val<br>0.5:0.95 | Params<br>(M) |FLOPs<br>(G)| weights |
+| ------        |:---:  |  :---:       |:---:     |:---:  | :---: |
+|[YOLOX-Nano](./exps/default/nano.py) |416  |25.9  | 0.91 |1.08 | [baidu](https://pan.baidu.com/s/1N4l1A2YAA2etPqh1Lcg-yA) code:ybxc |
+|[YOLOX-Tiny](./exps/default/yolox_tiny.py) |416  |32.9 | 5.06 |6.45 | [baidu](https://pan.baidu.com/s/1N4l1A2YAA2etPqh1Lcg-yA) code:ybxc |
 ## 推理
 ```
 python tools/demo.py image -n yolox-nano -c ./YOLOX_outputs/nano/yolox_nano.pdparams --path assets/dog.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result
